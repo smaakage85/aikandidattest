@@ -26,3 +26,6 @@ bump: ## Bump version based on commit history
 
 bump-dry: ## Preview next version bump without applying
 	uv run cz bump --dry-run
+
+run: ## Start the AI Kandidattest web app
+	uv run aikandidattest --debug

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container login-page">
+
+  <div class="hero">
+    <div class="ai-badge">AI-POWERED</div>
+    <h1>🗳️ AI Kandidattest</h1>
+    <p class="subtitle">
+      Find ud af hvilken politiker der matcher dig bedst –
+      baseret på din <strong>rigtige</strong> adfærd på sociale medier.
+    </p>
+    <p class="disclaimer-small">
+      Vores avancerede AI analyserer dine likes, delinger, kommentarer og
+      forbindelser for at give dig et 100% objektivt match.
+    </p>
+  </div>
+
+  <div class="login-buttons">
+    <p class="login-cta">Log ind for at starte din analyse:</p>
+
+    <a href="{{ url_for('analyzing') }}" class="btn btn-google">
+      <span class="btn-icon">G</span>
+      Fortsæt med Google
+    </a>
+
+    <a href="{{ url_for('analyzing') }}" class="btn btn-facebook">
+      <span class="btn-icon">f</span>
+      Fortsæt med Facebook
+    </a>
+
+    <a href="{{ url_for('analyzing') }}" class="btn btn-linkedin">
+      <span class="btn-icon">in</span>
+      Fortsæt med LinkedIn
+    </a>
+  </div>
+
+  <p class="fine-print">
+    Ved at logge ind giver du samtykke til at vi analyserer alt hvad du
+    nogensinde har skrevet, liket eller delt på internettet. Vi lover at
+    behandle dine data med den største … kreativitet.
+  </p>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container analyzing-page">
+
+  <div class="ai-badge">AI-POWERED</div>
+  <h1>🔍 Analyserer din profil…</h1>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+  <p class="progress-pct" id="progress-pct">0 %</p>
+
+  <div class="status-feed" id="status-feed">
+    <!-- Steps injected by JS -->
+  </div>
+
+</div>
+
+<script>
+  const steps = [
+    { text: "Forbinder til din profil…", duration: 1200 },
+    { text: "Downloader offentlige opslag (2.847 fundet)…", duration: 1800 },
+    { text: "Analyserer likes og reaktioner…", duration: 1400 },
+    { text: "Scanner kommentarer for politiske holdninger…", duration: 2000 },
+    { text: "Kortlægger dit netværk af forbindelser…", duration: 1500 },
+    { text: "Kører sentimentanalyse (NLP v4.2)…", duration: 1600 },
+    { text: "Sammenligner med 847 kandidatprofiler…", duration: 1800 },
+    { text: "Beregner dit politiske kompas…", duration: 1200 },
+    { text: "Finder dit perfekte match…", duration: 1400 },
+    { text: "✅ Analyse fuldført!", duration: 800 },
+  ];
+
+  const bar = document.getElementById("progress-bar");
+  const pct = document.getElementById("progress-pct");
+  const feed = document.getElementById("status-feed");
+
+  let current = 0;
+  const totalDuration = steps.reduce((s, st) => s + st.duration, 0);
+  let elapsed = 0;
+
+  function nextStep() {
+    if (current >= steps.length) {
+      setTimeout(() => { window.location.href = "/result"; }, 600);
+      return;
+    }
+
+    const step = steps[current];
+    const el = document.createElement("p");
+    el.className = "status-line fade-in";
+    el.textContent = step.text;
+    feed.appendChild(el);
+    feed.scrollTop = feed.scrollHeight;
+
+    elapsed += step.duration;
+    const progress = Math.min(Math.round((elapsed / totalDuration) * 100), 100);
+    bar.style.width = progress + "%";
+    pct.textContent = progress + " %";
+
+    current++;
+    setTimeout(nextStep, step.duration);
+  }
+
+  nextStep();
+</script>
+{% endblock %}
