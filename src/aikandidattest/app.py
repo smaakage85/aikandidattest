@@ -27,10 +27,10 @@ def create_app() -> Flask:
         "party": "Frie Grønne",
         "photo": "candidate.png",
         "confidence": f"{random.uniform(94.0, 99.9):.1f}",
-        "tagline": "Vi skal turde tage de svære kampe – for klimaet og for hinanden.",
+        "tagline": "Sikandar rimer på Panda",
         "policies": [
+            "Befri København for zionisme",
             "Ambitiøs klimahandling og grøn omstilling nu",
-            "Styrket mental sundhed og trivsel for unge",
             "Et mere retfærdigt og rummeligt samfund for alle",
         ],
     }
